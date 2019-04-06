@@ -1,0 +1,14 @@
+body{
+    background: beige;
+    margin: 1em;
+    padding: 1em;
+    font-size: 1em;
+}
+
+.myform{
+    margin-bottom: 2em;
+}
+
+.name, .breed {
+    margin-bottom: 1em;
+}

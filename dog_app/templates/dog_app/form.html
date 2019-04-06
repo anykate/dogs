@@ -1,0 +1,15 @@
+<div class="name">
+    <label for="name">Name:
+        <!--<input type="text" name="name" id="name" />-->
+        {{ form.name | safe }}
+    </label>
+</div>
+
+<div class="breed">
+    <label for="breed">Breed:
+        <!--<input type="text" name="breed" id="breed" />-->
+        {{ form.breed | safe }}
+    </label>
+</div>
+
+<input type="submit" value="Submit"/>

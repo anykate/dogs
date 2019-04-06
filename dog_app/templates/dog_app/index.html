@@ -1,0 +1,41 @@
+{% extends 'dog_app\base.html' %}
+
+{% block title %}
+    Dog App - Index
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'dog_app:create' %}" method="POST" class="myform">
+        {% csrf_token %}
+        {% include 'dog_app/form.html' %}
+    </form>
+
+    <table border="1">
+		<thead>
+            <tr>
+                <th>Dog Name</th>
+                <th>Breed</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Actions</th>
+            </tr>
+		</thead>
+		<tbody>
+            {% for dog in dogs %}
+                <tr>
+                    <td>{{ dog.name }}</td>
+                    <td>{{ dog.breed }}</td>
+                    <td>{{ dog.created_at }}</td>
+                    <td>{{ dog.updated_at }}</td>
+                    <td>
+                        <!-- <a href="{% url 'dog_app:edit' dog.id %}">Edit</a> | -->
+                        <a href="{{ dog.get_absolute_url_edit }}">Edit</a> |
+                        <!-- <a href="{% url 'dog_app:delete' dog.id %}">Delete</a> -->
+                        <a href="{{ dog.get_absolute_url_delete }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

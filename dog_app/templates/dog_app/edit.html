@@ -1,0 +1,13 @@
+{% extends 'dog_app/base.html' %}
+
+{% block title %}
+    Dog App - Edit
+{% endblock %}
+
+{% block content %}
+    <!-- <form action="{% url 'dog_app:update' dog.id %}" method="POST" class="myform"> -->
+    <form action="{{ dog.get_absolute_url_update }}" method="POST" class="myform">
+        {% csrf_token %}
+        {% include 'dog_app/form.html' %}
+    </form>
+{% endblock %}
